@@ -1,119 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Florida Rocket Lab</title>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kode+Mono:wght@400..700&display=swap');
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Florida Rocket Lab</title>
+        <script>
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => {
+                    if (isElementInViewport(section)) {
+                        section.classList.add('animated');
+                    } else {
+                        section.classList.remove('animated');
+                    }
+                });
+            });
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        border: none;
-        text-decoration: none;
-        ::-webkit-scrollbar {
-            display: none;
-        }
-        scrollbar-width: none;
-    }
-
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #131316;
-    }
-    .hero {
-        background-image: url('rocket-launch.jpg');
-        background-size: cover;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-        & > h3 {
-            word-spacing: 1.8;
-            letter-spacing: 1.8;
-        }
-    }
-    .about {
-        background-color: #f2f2f2;
-        padding: 50px;
-        text-align: center;
-    }
-    .project {
-        padding: 50px;
-        text-align: center;
-        color: white;
-    }
-    .subteam {
-        background-color: #f2f2f2;
-        padding: 50px;
-        text-align: center;
-    }
-    .footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-    }
-    .section {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.5s, transform 0.5s;
-    }
-    .section.animated {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    @media (max-width: 768px) {
-        .section {
-            padding: 20px;
-        }
-    }
-</style>
-</head>
-<body>
-<div class="hero">
-    <h1>Welcome to Florida Rocket Lab</h1>
-    <h3>University of Florida</h3>
-</div>
-<div class="about section">
-    <h2>About Us</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
-</div>
-<div class="project section">
-    <h2>Our Projects</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
-</div>
-<div class="subteam section">
-    <h2>Meet Our Subteams</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
-</div>
-<div class="footer">
-    <p>&copy; 2024 Florida Rocket Lab</p>
-</div>
-<script>
-    window.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => {
-            if (isElementInViewport(section)) {
-                section.classList.add('animated');
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+                );
             }
-        });
-    });
+        </script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kode+Mono:wght@400..700&display=swap');
 
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-        );
-    }
-</script>
-</body>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                border: none;
+                text-decoration: none;
+                ::-webkit-scrollbar {
+                    display: none;
+                }
+                scrollbar-width: none;
+            }
+
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #131316;
+            }
+            .hero {
+                background-image: url('rocket-launch.jpg');
+                background-size: cover;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                text-align: center;
+                & > h3 {
+                    word-spacing: 1.8;
+                    letter-spacing: 1.8;
+                }
+            }
+            .about {
+                background-color: #f2f2f2;
+                padding: 50px;
+                text-align: center;
+            }
+            .project {
+                padding: 50px;
+                text-align: center;
+                color: white;
+            }
+            .subteam {
+                background-color: #f2f2f2;
+                padding: 50px;
+                text-align: center;
+            }
+            .footer {
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 20px 0;
+            }
+            .section {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s, transform 0.5s;
+            }
+            .section.animated {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            @media (max-width: 768px) {
+                .section {
+                    padding: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+    <div class="hero">
+        <h1>Welcome to Florida Rocket Lab</h1>
+        <h3>University of Florida</h3>
+    </div>
+    <div class="about section">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
+    </div>
+    <div class="project section">
+        <h2>Our Projects</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
+    </div>
+    <div class="subteam section">
+        <h2>Meet Our Subteams</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Florida Rocket Lab</p>
+    </div>
+
+    </body>
 </html>
