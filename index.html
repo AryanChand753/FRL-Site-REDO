@@ -12,10 +12,10 @@
                     if (isElementInViewport(section)) {
                         section.classList.add('animated');
                         if (section.classList.contains('project')) {
-                            section.style.height = '1000px';
+                            section.style.height = 'fit-content';
                         }
                         if (section.classList.contains('subteam')) {
-                            section.style.height = '1000px';
+                            section.style.height = 'fit-content';
                         }
                     }
                 });
@@ -230,12 +230,64 @@
                 color: white;
                 height: 700px;
                 transition: height 0.5s, opacity 0.5s, transform 0.5s;
+
+                & > .card-container {
+                    padding: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    
+
+                    & > .card {
+                        border: 1px solid rgba(255, 255, 255, 0.25);
+                        border-radius: 20px;
+                        margin-block: 10px;
+                        background-color: rgba(255, 255, 255, 0.45);
+                        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+                        /*backdrop-filter: blur(15px);*/
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: nowrap;
+
+                        & > #hopper-img {
+                            border-radius: 20px;
+                            height: 500px;
+                            background: url('/src/images/bus.jpg') center center no-repeat;
+                            background-size: cover;
+                        }
+                        & > #trailer-img {
+                            border-radius: 20px;
+                            height: 500px;
+                            background: url('/src/images/genshin.jpg') center center no-repeat;
+                            background-size: cover;
+                        }
+
+                        & > .card-content {
+                            text-align: justify;
+                            padding: 15px;
+                        }
+                    }
+                }
             }
             .subteam {
-                background-color: #f2f2f2;
+                background-color: black;
+                color: white;
                 padding: 50px;
                 text-align: center;
+                align-items: center;
+                justify-content: center;
                 transition: height 0.5s, opacity 0.5s, transform 0.5s;
+                align-content: center;
+                width: 100%;
+
+                & > .screen-container {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    max-width: calc(100vw - 500px);
+                    padding-left: 250px;
+                    padding-right: 250px;
+                    justify-content: space-evenly;
+                }
             }
             .footer {
                 background-color: #333;
@@ -305,11 +357,117 @@
             </div>
             <div class="project section">
                 <h2>Our Projects</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
+                <div class="card-container">
+                    <div class="card" id="hopper">
+                        <div id="hopper-img"></div>
+                        <div class="card-content">
+                            <h2 class="title">Hopper</h2>
+                            <p class="details">Check out our entry into the <strong>Collegiate Propulsive Lander Competition</strong>. We're approaching our first hot-fire for our 550lb Sparrow Engine.</p>
+                        </div>
+
+                    </div>
+                    <div class="card" id="trailer">
+                        <div id="trailer-img"></div>
+                        <div class="card-content">
+                            <h2 class="title">Trailer</h2>
+                            <p class="details">details</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="subteam section">
                 <h2>Meet Our Subteams</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
+                <div class="screen-container">
+                    <!-- Avionics, Business, Engine Design, Fluid Systems, Food and Agriculture, Manufacturing, Safety, Vehicle Engineering -->
+                    <div class="screen">
+                        <div class="screen-image"></div>
+                        <div class="screen-overlay"></div>
+                        <div class="screen-content">
+                            <!-- INSERT ICON -->
+                            <svg></svg>
+                            <div class="screen-user"></div>
+                            <span class="name" data-value="AVIONICS">Engine Design</span>
+                            <a href="#" class="sub-link" id="av-link" rel="noopener noreferrer">Read More</a>
+                        </div>
+                    </div>
+                    <div class="screen">
+                        <div class="screen-image"></div>
+                        <div class="screen-overlay"></div>
+                        <div class="screen-content">
+                            <!-- INSERT ICON -->
+                            <svg></svg>
+                            <div class="screen-user"></div>
+                            <span class="name" data-value="BUSINESS">BUSINESS</span>
+                            <a href="#" class="sub-link" id="bn-link" rel="noopener noreferrer">Read More</a>
+                        </div>
+                    </div>
+                    <div class="screen">
+                        <div class="screen-image"></div>
+                        <div class="screen-overlay"></div>
+                        <div class="screen-content">
+                            <!-- INSERT ICON -->
+                            <svg></svg>
+                            <div class="screen-user"></div>
+                            <span class="name" data-value="ENGINE">ENGINE</span>
+                            <a href="#" class="sub-link" id="ed-link" rel="noopener noreferrer">Read More</a>
+                        </div>
+                    </div>
+                    <div class="screen">
+                        <div class="screen-image"></div>
+                        <div class="screen-overlay"></div>
+                        <div class="screen-content">
+                            <!-- INSERT ICON -->
+                            <svg></svg>
+                            <div class="screen-user"></div>
+                            <span class="name" data-value="BUSINESS">FLUIDS</span>
+                            <a href="#" class="sub-link" id="fd-link" rel="noopener noreferrer">Read More</a>
+                        </div>
+                    </div>
+                    <div class="screen">
+                        <div class="screen-image"></div>
+                        <div class="screen-overlay"></div>
+                        <div class="screen-content">
+                            <!-- INSERT ICON -->
+                            <svg></svg>
+                            <div class="screen-user"></div>
+                            <span class="name" data-value="BUSINESS">FOOD</span>
+                            <a href="#" class="sub-link" id="fa-link" rel="noopener noreferrer">Read More</a>
+                        </div>
+                    </div>
+                    <div class="screen">
+                        <div class="screen-image"></div>
+                        <div class="screen-overlay"></div>
+                        <div class="screen-content">
+                            <!-- INSERT ICON -->
+                            <svg></svg>
+                            <div class="screen-user"></div>
+                            <span class="name" data-value="MANUFACTURING">MANUFACTURING</span>
+                            <a href="#" class="sub-link" id="mf-link" rel="noopener noreferrer">Read More</a>
+                        </div>
+                    </div>
+                    <div class="screen">
+                        <div class="screen-image"></div>
+                        <div class="screen-overlay"></div>
+                        <div class="screen-content">
+                            <!-- INSERT ICON -->
+                            <svg></svg>
+                            <div class="screen-user"></div>
+                            <span class="name" data-value="SAFETY">SAFETY</span>
+                            <a href="#" class="sub-link" id="sf-link" rel="noopener noreferrer">Read More</a>
+                        </div>
+                    </div>
+                    <div class="screen">
+                        <div class="screen-image"></div>
+                        <div class="screen-overlay"></div>
+                        <div class="screen-content">
+                            <!-- INSERT ICON -->
+                            <svg></svg>
+                            <div class="screen-user"></div>
+                            <span class="name" data-value="VEHICLE">VEHICLE</span>
+                            <a href="#" class="sub-link" id="vd-link" rel="noopener noreferrer">Read More</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="footer">
                 <p>&copy; 2024 Florida Rocket Lab</p>
