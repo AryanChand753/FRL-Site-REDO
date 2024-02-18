@@ -11,8 +11,12 @@
                 sections.forEach(section => {
                     if (isElementInViewport(section)) {
                         section.classList.add('animated');
-                    } else {
-                        section.classList.remove('animated');
+                        if (section.classList.contains('project')) {
+                            section.style.height = '1000px';
+                        }
+                        if (section.classList.contains('subteam')) {
+                            section.style.height = '1000px';
+                        }
                     }
                 });
             });
@@ -37,11 +41,10 @@
                     document.querySelectorAll(".nav-link").forEach(function(item) {
                         item.style.color = "#131316";
                     });
-                    document.getElementById("icon").style.color = "#131316";
                     document.querySelectorAll(".nav-button").forEach(function(item) {
                         item.style.color = "#131316";
                         item.style.border = "1px solid #131316"
-                        item.boxShadowColor = "rgab(0, 0, 0, 0.4)";
+                        item.boxShadowColor = "rgba(0, 0, 0, 0.4)";
                     });
                 } else {
                     header.style.backgroundColor = "transparent";
@@ -49,7 +52,6 @@
                     document.querySelectorAll(".nav-link").forEach(function(item) {
                         item.style.color = "#f2f2f2";
                     });
-                    document.getElementById("icon").style.color = "#f2f2f2";
                     document.querySelectorAll(".nav-button").forEach(function(item) {
                         item.style.color = "#f2f2f2";
                         item.style.border = "1px solid #f2f2f2";
@@ -78,6 +80,7 @@
                 font-family: Arial, sans-serif;
                 background-color: #131316;
                 overflow-x: clip;
+                overflow-y: scroll;
             }
 
             header {
@@ -164,11 +167,16 @@
                     }
                 }
             }
+            
+            main {
+                overflow: hidden;
+            }
 
             .hero {
                 background-image: url('rocket-launch.jpg');
                 background-size: cover;
                 height: 100vh;
+                width: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -178,28 +186,67 @@
                 font-size: 48px;
             }
             .about {
-                background-color: #f2f2f2;
+                background: linear-gradient(
+                    45deg,
+                    #db6a00 10%,
+                    white 90%,
+                    #0000ff);
                 padding: 50px;
                 text-align: center;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                line-height: 3;
+                
+                & > p {
+                    font-size: 18px;
+                    max-width: 50vw;
+                    margin-inline: 25vw;
+                    text-align: justify;
+
+                    & > #lrps {
+                        text-decoration: solid;
+                        font-weight: 600;
+                    }
+                    & > #university {
+                        color: #db6a00;
+                        font-weight: 900;
+                    }
+                    & > #florida {
+                        color: #0000ff;
+                        font-weight: 900;
+                    }
+                    & > #CPLC {
+                        font-weight: 900;
+                        text-decoration: underline;
+                        color: black;
+                    }
+                }
             }
             .project {
                 padding: 50px;
                 text-align: center;
                 color: white;
+                height: 700px;
+                transition: height 0.5s, opacity 0.5s, transform 0.5s;
             }
             .subteam {
                 background-color: #f2f2f2;
                 padding: 50px;
                 text-align: center;
+                transition: height 0.5s, opacity 0.5s, transform 0.5s;
             }
             .footer {
                 background-color: #333;
                 color: white;
                 text-align: center;
                 padding: 20px 0;
+                height: 300px;
             }
             .section {
                 opacity: 0;
+                min-height: 500px;
                 transform: translateY(20px);
                 transition: opacity 0.5s, transform 0.5s;
             }
@@ -245,30 +292,28 @@
             </nav>
             <button class="nav-button" type="button" onclick="memberLogin()">Member Login</button>
         </header>
-        <div class="hero">
-            <div class="text-wrapper">
-                <h1>Welcome to Florida Rocket Lab</h1>
-                <h3>University of Florida</h3>
+        <main>
+            <div class="hero">
+                <div class="text-wrapper">
+                    <h1>Welcome to Florida Rocket Lab</h1>
+                    <h3>University of Florida</h3>
+                </div>
             </div>
-            <div class="scroller">
-
+            <div class="about section">
+                <h2>About Us</h2>
+                <p>As a <strong>team</strong>, we specialize in <span id="lrps">liquid rocket propulsion systems</span>. This year, we plan to become the <strong>FIRST</strong> undergraduate <strong>team</strong> to launch and land a liquid-propelled rocket capable of generating <strong>500 lbs</strong> of thrust. To achieve this goal, we have designed a hopper system we hope to iteratively improve using feedback from <strong>industry design reviews</strong> and months of student testing. We will be using this design to represent the <span id="university">University</span> <span id="florida">of Florida</span> in the first-ever <a href="#" target="_blank" rel="noopener noreferrer" id="CPLC">Collegiate Propulsive Lander Competition</a>.</p>
             </div>
-        </div>
-        <div class="about section">
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
-        </div>
-        <div class="project section">
-            <h2>Our Projects</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
-        </div>
-        <div class="subteam section">
-            <h2>Meet Our Subteams</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
-        </div>
-        <div class="footer">
-            <p>&copy; 2024 Florida Rocket Lab</p>
-        </div>
-
+            <div class="project section">
+                <h2>Our Projects</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
+            </div>
+            <div class="subteam section">
+                <h2>Meet Our Subteams</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec felis ut magna viverra elementum. Integer ac feugiat neque.</p>
+            </div>
+            <div class="footer">
+                <p>&copy; 2024 Florida Rocket Lab</p>
+            </div>
+        </main>
     </body>
 </html>
