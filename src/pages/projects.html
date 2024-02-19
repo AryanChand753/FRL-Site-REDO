@@ -1,72 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Florida Rocket Lab | Projects</title>
-    <link rel="icon" href="https://floridarocketlab.org/static/media/LPLogo_Black.42724165117941c7c3630aa62ef1607a.svg">
-    <script>
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                if (isElementInViewport(section)) {
-                    section.classList.add('animated');
-                    if (section.classList.contains('project')) {
-                        section.style.height = 'fit-content';
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Florida Rocket Lab | Projects</title>
+        <link rel="icon" href="https://floridarocketlab.org/static/media/LPLogo_Black.42724165117941c7c3630aa62ef1607a.svg">
+        <script>
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => {
+                    if (isElementInViewport(section)) {
+                        section.classList.add('animated');
                     }
-                    if (section.classList.contains('subteam')) {
-                        section.style.height = 'fit-content';
-                    }
+                });
+            });
+
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+                );
+            }
+
+            function memberLogin() {
+                alert("Member Login Clicked!");
+            }
+
+            function sponsor() {
+                alert("Sponsorship Clicked!");
+            }
+
+            window.addEventListener("scroll", function() {
+                var header = document.getElementById("header");
+                if (window.scrollY > 0) {
+                    header.style.backgroundColor = "#f2f2f2";
+                    document.getElementById("icon").style.filter = "invert(100%)";
+                    header.style.boxShadow = "0 2px 4px 0 rgba(255, 255, 255, 0.2)";
+                    document.querySelectorAll(".nav-link").forEach(function(item) {
+                        item.style.color = "#131316";
+                    });
+                    document.querySelectorAll(".nav-button").forEach(function(item) {
+                        item.style.color = "#131316";
+                        item.style.border = "1px solid #131316"
+                        item.boxShadowColor = "rgba(0, 0, 0, 0.4)";
+                    });
+                } else {
+                    header.style.backgroundColor = "transparent";
+                    header.style.boxShadow = "none";
+                    document.getElementById("icon").style.filter = "none";
+                    document.querySelectorAll(".nav-link").forEach(function(item) {
+                        item.style.color = "#f2f2f2";
+                    });
+                    document.querySelectorAll(".nav-button").forEach(function(item) {
+                        item.style.color = "#f2f2f2";
+                        item.style.border = "1px solid #f2f2f2";
+                    });
                 }
             });
-        });
-
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-            );
-        }
-
-        function memberLogin() {
-            alert("Member Login Clicked!");
-        }
-
-        function sponsor() {
-            alert("Sponsorship Clicked!");
-        }
-
-        window.addEventListener("scroll", function() {
-            var header = document.getElementById("header");
-            if (window.scrollY > 0) {
-                header.style.backgroundColor = "#f2f2f2";
-                document.getElementById("icon").style.filter = "invert(100%)";
-                header.style.boxShadow = "0 2px 4px 0 rgba(255, 255, 255, 0.2)";
-                document.querySelectorAll(".nav-link").forEach(function(item) {
-                    item.style.color = "#131316";
-                });
-                document.querySelectorAll(".nav-button").forEach(function(item) {
-                    item.style.color = "#131316";
-                    item.style.border = "1px solid #131316"
-                    item.boxShadowColor = "rgba(0, 0, 0, 0.4)";
-                });
-            } else {
-                header.style.backgroundColor = "transparent";
-                header.style.boxShadow = "none";
-                document.getElementById("icon").style.filter = "none";
-                document.querySelectorAll(".nav-link").forEach(function(item) {
-                    item.style.color = "#f2f2f2";
-                });
-                document.querySelectorAll(".nav-button").forEach(function(item) {
-                    item.style.color = "#f2f2f2";
-                    item.style.border = "1px solid #f2f2f2";
-                });
-            }
-        });
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kode+Mono:wght@400..700&display=swap');
+        </script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kode+Mono:wght@400..700&display=swap');
 
             * {
                 margin: 0;
@@ -259,39 +253,39 @@
                     font-size: 18px;
                 }
             }
-    </style>
-</head>
-<body>
-    <header id="header">
-        <a id="icon" class="nav-item" href="index.html" target="_top" rel="noopener noreferrer">
-            <img src="https://floridarocketlab.org/static/media/LPLogo_Black.42724165117941c7c3630aa62ef1607a.svg" alt="Florida Rocket Lab">
-        </a>
-        <nav>
-            <a class="nav-link" href="index.html" target="_top" rel="noopener noreferrer">Home</a>
-            <a class="nav-link" href="about.html" rel="noopener noreferrer">About</a>
-            <a class="nav-link" href="#" rel="noopener noreferrer">Projects</a>
-            <a class="nav-link" href="sponsors.html" rel="noopener noreferrer">Sponsors</a>
-            <a class="nav-link" href="team.html" rel="noopener noreferrer">Our Team</a>
-            <a class="nav-link" href="subteams.html" rel="noopener noreferrer">Subteams</a>
-        </nav>
-        <button class="nav-button" type="button" onclick="memberLogin()">Member Login</button>
-    </header>
-    <main>
-        <div class="hero">
-            <h1>Our Projects</h1>
-        </div>
-        <div class="footer">
-            <h1>Want to help out?</h1>
-            <p>We're always looking for new sponsors who can help our team accelerate to the next level in rocketry technology</p>
-            <button type="button" onclick="sponsor()">SPONSOR US</button>
+        </style>
+    </head>
+    <body>
+        <header id="header">
+            <a id="icon" class="nav-item" href="index.html" target="_top" rel="noopener noreferrer">
+                <img src="https://floridarocketlab.org/static/media/LPLogo_Black.42724165117941c7c3630aa62ef1607a.svg" alt="Florida Rocket Lab">
+            </a>
             <nav>
-                <a href="http://" target="_blank" rel="noopener noreferrer" class="footer-link" id="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M16.5 7.5l0 .01" /></svg></a>
-                <a href="http://" target="_blank" rel="noopener noreferrer" class="footer-link" id="X"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg></a>
-                <a href="http://" target="_blank" rel="noopener noreferrer" class="footer-link" id="YouTube"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" /></svg></a>
-                <a href="http://" target="_blank" rel="noopener noreferrer" class="footer-link" id="Twitch"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitch" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5v11a1 1 0 0 0 1 1h2v4l4 -4h5.584c.266 0 .52 -.105 .707 -.293l2.415 -2.414c.187 -.188 .293 -.442 .293 -.708v-8.585a1 1 0 0 0 -1 -1h-14a1 1 0 0 0 -1 1z" /><path d="M16 8l0 4" /><path d="M12 8l0 4" /></svg></a>
-                <a href="mailto:" rel="noopener noreferrer" class="footer-link" id="mail"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg></a>
+                <a class="nav-link" href="index.html" target="_top" rel="noopener noreferrer">Home</a>
+                <a class="nav-link" href="about.html" rel="noopener noreferrer">About</a>
+                <a class="nav-link" href="#" rel="noopener noreferrer">Projects</a>
+                <a class="nav-link" href="sponsors.html" rel="noopener noreferrer">Sponsors</a>
+                <a class="nav-link" href="team.html" rel="noopener noreferrer">Our Team</a>
+                <a class="nav-link" href="subteams.html" rel="noopener noreferrer">Subteams</a>
             </nav>
-        </div>
-    </main>
-</body>
+            <button class="nav-button" type="button" onclick="memberLogin()">Member Login</button>
+        </header>
+        <main>
+            <div class="hero">
+                <h1>Our Projects</h1>
+            </div>
+            <div class="footer">
+                <h1>Want to help out?</h1>
+                <p>We're always looking for new sponsors who can help our team accelerate to the next level in rocketry technology</p>
+                <button type="button" onclick="sponsor()">SPONSOR US</button>
+                <nav>
+                    <a href="http://" target="_blank" rel="noopener noreferrer" class="footer-link" id="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M16.5 7.5l0 .01" /></svg></a>
+                    <a href="http://" target="_blank" rel="noopener noreferrer" class="footer-link" id="X"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg></a>
+                    <a href="http://" target="_blank" rel="noopener noreferrer" class="footer-link" id="YouTube"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" /></svg></a>
+                    <a href="http://" target="_blank" rel="noopener noreferrer" class="footer-link" id="Twitch"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitch" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5v11a1 1 0 0 0 1 1h2v4l4 -4h5.584c.266 0 .52 -.105 .707 -.293l2.415 -2.414c.187 -.188 .293 -.442 .293 -.708v-8.585a1 1 0 0 0 -1 -1h-14a1 1 0 0 0 -1 1z" /><path d="M16 8l0 4" /><path d="M12 8l0 4" /></svg></a>
+                    <a href="mailto:" rel="noopener noreferrer" class="footer-link" id="mail"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg></a>
+                </nav>
+            </div>
+        </main>
+    </body>
 </html>
