@@ -11,12 +11,6 @@
             sections.forEach(section => {
                 if (isElementInViewport(section)) {
                     section.classList.add('animated');
-                    if (section.classList.contains('project')) {
-                        section.style.height = 'fit-content';
-                    }
-                    if (section.classList.contains('subteam')) {
-                        section.style.height = 'fit-content';
-                    }
                 }
             });
         });
@@ -239,6 +233,83 @@
                 transform: translateY(0);
             }
 
+            .hero {
+                height: 250px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                background: url('../images/sao.jpg') center center no-repeat;
+                background-size: cover;
+                flex-direction: column;
+                color: white;
+                & > h1 {
+                    font-size: 48px;
+                }
+                & > p {
+                    width: 50%;
+                }
+            }
+
+            .content {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                height: fit-content;
+                width: 100%;
+                background-color: white;
+                color: black;
+                margin-bottom: 60px;
+
+                & > .team-container {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    margin: 0;
+                    padding-top: 75px;
+                    row-gap: 60px;
+                    width: 1100px;
+                    align-items: center;
+                    display: flex;
+                    height: fit-content;
+                    justify-content: space-evenly;
+
+                    & > .team-wrapper {
+                        align-items: left;
+                        display: flex;
+                        flex-direction: column;
+                        height: fit-content;
+                        justify-content: space-between;
+                        padding-left: 20px;
+                        width: 309px;
+
+                        & > .team-photo {
+                            cursor: pointer;
+                            height: 375px;
+                            margin-bottom: 0;
+                            transition: .3s ease-in-out;
+                            width: 288.75px;
+                        }
+                        & > .team-name {
+                            color: #131316;
+                            margin-bottom: 5px;
+                            font-size: 21px;
+                            font-weight: 700;
+                            display: block;
+                            margin-block: 1em;
+                            margin-inline: 0;
+                        }
+                        & > .team-pos {
+                            font-size: 13px;
+                            letter-spacing: 1.3px;
+                            display: block;
+                            margin-block: -1em;
+                            margin-inline: 0;
+                        }
+                    }
+                }
+            }
+
             @media (max-width: 1700px) {
                 .hero {
                     font-size: 36px;
@@ -278,8 +349,38 @@
     </header>
     <main>
         <div class="hero">
-            <h1>Our Projects</h1>
+            <h1>Our Team</h1>
+            <p>Florida Rocket Lab is led by an appointed board of directors, each of whom has demonstrated dedication and leadership within their discipline.</p>
         </div>
+
+        <section class="content">
+            <div class="team-container">
+                <div class="team-wrapper">
+                    <img class="team-photo" src="https://floridarocketlab.org/static/media/IMG_0297.a8a809d3cbbc051100f8.jpg" alt="">
+                    <p class="team-name">Jonner Delgado</p>
+                    <p class="team-pos">President</p>
+                </div>
+                <div class="team-wrapper">
+                    <img src="https://floridarocketlab.org/static/media/IMG_0320.8076d29d67bc9d6fbee8.jpg" alt="" class="team-photo">
+                    <p class="team-name">Nikhil Chitturi</p>
+                    <p class="team-pos">Vice President of Propulsion</p>
+                </div>
+                <div class="team-wrapper">
+                    <img src="https://floridarocketlab.org/static/media/IMG_0301.ceda658a6b7f438bdecd.jpg" alt="" class="team-photo">
+                    <p class="team-name">Chase MacDonnell</p>
+                    <p class="team-pos">Vice President of Avionics</p>
+                </div>
+                <div class="team-wrapper">
+                    <img src="https://floridarocketlab.org/static/media/IMG_0324.49446e1fc82f732395f8.jpg" alt="" class="team-photo">
+                    <p class="team-name">Jazmine Sandoval</p>
+                    <p class="team-pos">Public Relations Director</p>
+                </div>
+                <div class="team-wrapper"></div>
+                <div class="team-wrapper"></div>
+                <div class="team-wrapper"></div>
+            </div>
+        </section>
+
         <div class="footer">
             <h1>Want to help out?</h1>
             <p>We're always looking for new sponsors who can help our team accelerate to the next level in rocketry technology</p>
