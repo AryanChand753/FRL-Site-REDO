@@ -179,7 +179,7 @@
             }
 
             .hero {
-                background-image: url('rocket-launch.jpg');
+                background: url('../images/TestFootage.mp4') center center no-repeat;
                 background-size: cover;
                 height: 100vh;
                 width: 100%;
@@ -190,6 +190,22 @@
                 color: white;
                 text-align: center;
                 font-size: 48px;
+                & > .heroVid {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: -1;
+                    height: 100vh;
+                    width: 100%;
+                    object-fit: cover;
+                }
+                & > video {
+                    object-fit: contain;
+                    overflow-clip-margin: content-box;
+                    overflow: clip;
+                }
             }
             .about {
                 background: linear-gradient(
@@ -423,6 +439,7 @@
         </style>
     </head>
     <body>
+        <div id="preloader"></div>
         <header id="header">
             <a id="icon" class="nav-item" href="#" target="_top" rel="noopener noreferrer">
                 <img src="https://floridarocketlab.org/static/media/LPLogo_Black.42724165117941c7c3630aa62ef1607a.svg" alt="Florida Rocket Lab">
@@ -439,6 +456,7 @@
         </header>
         <main>
             <div class="hero">
+                <video src="../images/TestFootage.mp4" poster="../images/genshin.jpg" class="heroVid" autoplay loop playslinline></video>
                 <div class="text-wrapper">
                     <h1>Welcome to Florida Rocket Lab</h1>
                     <h3>University of Florida</h3>

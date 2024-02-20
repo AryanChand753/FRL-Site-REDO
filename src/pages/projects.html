@@ -41,6 +41,11 @@
                     });
                 }
             });
+
+            var loader = document.getElementById("preloader");
+            window.addEventListener("load", function() {
+                loader.style.display = "none";
+            })
         </script>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kode+Mono:wght@400..700&display=swap');
@@ -56,6 +61,15 @@
                 }
                 scrollbar-width: none;
                 font-family: "Kode Mono", monospace;
+            }
+
+            #preloader {
+                background: black url(../images/) no-repeat center center;
+                background-size: cover;
+                height: 100vh;
+                width: 100vw;
+                position: fixed;
+                z-index: 1000000;
             }
 
             body {
