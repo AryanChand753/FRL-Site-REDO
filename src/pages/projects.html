@@ -221,8 +221,13 @@
                 font-size: 48px;
             }
 
-            .proj {
+            .proj#trailer {
                 background: url('https://floridarocketlab.org/static/media/Trailer.c7ccf8be5ddaeb3e37bb.webp');
+            }
+            .proj#hopper {
+                background: url('https://floridarocketlab.org/static/media/Ben.5bf6ef2da6aa1cf46a8e.webp') center center no-repeat;
+            }
+            .proj {
                 height: 1000px;
                 width: 100%;
                 display: flex;
@@ -232,9 +237,6 @@
                 align-items: center;
                 color: #131316;
                 text-align: center;
-                scroll-snap-type: y mandatory;
-                scroll-snap-align: start;
-                overflow-y: scroll;
                 & > .title {
                     font-size: 42px;
                 }
@@ -257,7 +259,22 @@
                     input[type="checkbox"]:checked ~ .trailer-modal-background {
                         display: block;
                     }
+                    & > input[type="checkbox"]:checked ~ .modal,
+                    input[type="checkbox"]:checked ~ .hopper-modal-background {
+                        display: block;
+                    }
+
                     & > .trailer-modal-background {
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        display: none;
+                        z-index: 9998;
+                    }
+                    & > .hopper-modal-background {
                         width: 100%;
                         height: 100%;
                         background-color: rgba(0, 0, 0, 0.5);
@@ -337,6 +354,31 @@
                         background-color: rgba(0, 204, 255, 0.39);
                         transform: scale(1.05);
                     }
+                    .hopper-label {
+                        box-sizing: border-box;
+                        display: inline-block;
+                        border: 1px solid #131316;
+                        border-radius: 3px 9px 6px;
+                        padding: 10px;
+                        background-color: #f2f2f2;
+                        font-size: 12px;
+                        font-weight: bold;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        transition: all .2s ease-in-out;
+                        cursor: pointer;
+                        & > span {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-evenly;
+                        }
+                        .hopper-label:hover {
+                            background-color: rgba(0, 204, 255, 0.39);
+                            transform: scale(1.05);
+                        }
+                    }
                 }
             }
             .proj#trailer {
@@ -390,7 +432,7 @@
                     <div class="wrapper">
                         <p class="content">We recently acquired the basis for our future engine testing operations! Check out our future plans here.</p>
                     </div>
-                    <input type="checkbox" name="modeltrailer" id="trailer-modal">
+                    <input type="checkbox" name="modaltrailer" id="trailer-modal">
                     <label for="trailer-modal" class="trailer-label"><span>Learn More <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg></span></label>
                     <label for="trailer-modal" class="trailer-modal-background"></label>
                     <div class="modal">
@@ -400,7 +442,27 @@
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAdVBMVEUAAABNTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU0N3NIOAAAAJnRSTlMAAQIDBAUGBwgRFRYZGiEjQ3l7hYaqtLm8vsDFx87a4uvv8fP1+bbY9ZEAAAB8SURBVBhXXY5LFoJAAMOCIP4VBRXEv5j7H9HFDOizu2TRFljedgCQHeocWHVaAWStXnKyl2oVWI+kd1XLvFV1D7Ng3qrWKYMZ+MdEhk3gbhw59KvlH0eTnf2mgiRwvQ7NW6aqNmncukKhnvo/zzlQ2PR/HgsAJkncH6XwAcr0FUY5BVeFAAAAAElFTkSuQmCC" width="16" height="16" alt="">
                             </label>
                         </div>
-                        <p>Content</p>
+                        <p>We recently acquired the basis for our future engine testing operations! Check out our future plans here.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="proj" id="hopper">
+                <h1 class="title">Hopper</h1>
+                <div class="container">
+                    <div class="wrapper">
+                        <p class="content">Check out our entry into the <strong>Collegiate Propulsive Lander Competition</strong>. We are approaching our first hot-fire for our <strong>550lb Sparrow Engine</strong>.</p>
+                    </div>
+                    <input type="checkbox" name="modalHopper" id="hopper-modal">
+                    <label for="hopper-modal" class="hopper-label"><span>Learn More <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg></span></label>
+                    <label for="hopper-modal" class="hopper-modal-background"></label>
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h3>Hopper Rocket</h3>
+                            <label for="hopper-modal">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAdVBMVEUAAABNTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU0N3NIOAAAAJnRSTlMAAQIDBAUGBwgRFRYZGiEjQ3l7hYaqtLm8vsDFx87a4uvv8fP1+bbY9ZEAAAB8SURBVBhXXY5LFoJAAMOCIP4VBRXEv5j7H9HFDOizu2TRFljedgCQHeocWHVaAWStXnKyl2oVWI+kd1XLvFV1D7Ng3qrWKYMZ+MdEhk3gbhw59KvlH0eTnf2mgiRwvQ7NW6aqNmncukKhnvo/zzlQ2PR/HgsAJkncH6XwAcr0FUY5BVeFAAAAAElFTkSuQmCC" width="16" height="16" alt="">
+                            </label>
+                        </div>
+                        <p>Check out our entry into the <strong>Collegiate Propulsive Lander Competition</strong>. We are approaching our first hot-fire for our <strong>550lb Sparrow Engine</strong>.</p>
                     </div>
                 </div>
             </div>
