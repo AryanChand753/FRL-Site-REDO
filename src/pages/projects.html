@@ -6,23 +6,6 @@
         <title>Florida Rocket Lab | Projects</title>
         <link rel="icon" href="https://floridarocketlab.org/static/media/LPLogo_Black.42724165117941c7c3630aa62ef1607a.svg">
         <script>
-            window.addEventListener('scroll', function() {
-                const sections = document.querySelectorAll('.section');
-                sections.forEach(section => {
-                    if (isElementInViewport(section)) {
-                        section.classList.add('animated');
-                    }
-                });
-            });
-
-            function isElementInViewport(el) {
-                const rect = el.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-                );
-            }
-
             function memberLogin() {
                 alert("Member Login Clicked!");
             }
@@ -238,16 +221,126 @@
                 font-size: 48px;
             }
 
+            .proj {
+                background: url('https://floridarocketlab.org/static/media/Trailer.c7ccf8be5ddaeb3e37bb.webp');
+                height: 1000px;
+                width: 100%;
+                display: flex;
+                padding: 50px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: #131316;
+                text-align: center;
+                scroll-snap-type: y mandatory;
+                scroll-snap-align: start;
+                overflow-y: scroll;
+                & > .title {
+                    font-size: 42px;
+                }
+                & > .container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    gap: 10px;
+                    height: 100%;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                    text-align: center;
 
-            .section {
-                opacity: 0;
-                min-height: 500px;
-                transform: translateY(20px);
-                transition: opacity 0.5s, transform 0.5s;
+                    /* MODAL */
+                    & > input[type="checkbox"] {
+                        display: none;
+                        background-color: #131316;
+                    }
+                    & > input[type="checkbox"]:checked ~ .modal,
+                    input[type="checkbox"]:checked ~ .trailer-modal-background {
+                        display: block;
+                    }
+                    & > .trailer-modal-background {
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        display: none;
+                        z-index: 9998;
+                    }
+                    & > .modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                        transition: all .2s ease-in-out;
+                        display: none;
+                        width: 300px;
+                        height: 300px;
+                        background-color: #f2f2f2;
+                        box-sizing: border-box;
+                        z-index: 9999;
+                        & > p {
+                            padding: 15px;
+                            margin: 0;
+                        }
+                    }
+                    .modal-header {
+                        background-color: #f2f2f2;
+                        border-bottom: 1px solid #ddd;
+                        box-sizing: border-box;
+                        height: 50px;
+                        & > h3 {
+                            margin: 0;
+                            box-sizing: border-box;
+                            padding-left: 15px;
+                            line-height: 50px;
+                            color: #131316;
+                            font-size: 16px;
+                            display: inline-block;
+                        }
+                        & > label {
+                            box-sizing: border-box;
+                            border-left: 1px solid #131316;
+                            float: right;
+                            line-height: 50px;
+                            padding: 0 15px 0 15px;
+                            cursor: pointer;
+                        }
+                    }
+                    .modal-header label:hover img {
+                        opacity: 0.6;
+                    }
+                    .trailer-label {
+                        box-sizing: border-box;
+                        display: inline-block;
+                        border: 1px solid #131316;
+                        border-radius: 3px 9px 6px;
+                        padding: 10px;
+                        background-color: #f2f2f2;
+                        font-size: 12px;
+                        font-weight: bold;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        transition: all .2s ease-in-out;
+                        cursor: pointer;
+                        & > span {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-evenly;
+                        }
+                    }
+                    .trailer-label:hover {
+                        background-color: rgba(0, 204, 255, 0.39);
+                        transform: scale(1.05);
+                    }
+                }
             }
-            .section.animated {
-                opacity: 1;
-                transform: translateY(0);
+            .proj#trailer {
+                background-size: cover;
             }
 
             @media (max-width: 1700px) {
@@ -290,6 +383,26 @@
         <main>
             <div class="hero">
                 <h1>Our Projects</h1>
+            </div>
+            <div class="proj" id="trailer">
+                <h1 class="title">Trailer Mobile Testbed</h1>
+                <div class="container">
+                    <div class="wrapper">
+                        <p class="content">We recently acquired the basis for our future engine testing operations! Check out our future plans here.</p>
+                    </div>
+                    <input type="checkbox" name="modeltrailer" id="trailer-modal">
+                    <label for="trailer-modal" class="trailer-label"><span>Learn More <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg></span></label>
+                    <label for="trailer-modal" class="trailer-modal-background"></label>
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h3>Trailer Mobile Tester</h3>
+                            <label for="trailer-modal">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAdVBMVEUAAABNTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU0N3NIOAAAAJnRSTlMAAQIDBAUGBwgRFRYZGiEjQ3l7hYaqtLm8vsDFx87a4uvv8fP1+bbY9ZEAAAB8SURBVBhXXY5LFoJAAMOCIP4VBRXEv5j7H9HFDOizu2TRFljedgCQHeocWHVaAWStXnKyl2oVWI+kd1XLvFV1D7Ng3qrWKYMZ+MdEhk3gbhw59KvlH0eTnf2mgiRwvQ7NW6aqNmncukKhnvo/zzlQ2PR/HgsAJkncH6XwAcr0FUY5BVeFAAAAAElFTkSuQmCC" width="16" height="16" alt="">
+                            </label>
+                        </div>
+                        <p>Content</p>
+                    </div>
+                </div>
             </div>
             <div class="footer">
                 <h1>Want to help out?</h1>
