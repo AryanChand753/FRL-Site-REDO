@@ -153,6 +153,8 @@
                     color: #f2f2f2;
                     justify-content: center;
                     height: 50px;
+                    opacity: 0;
+                    /* <!-- ! TODO: --> */
                     border-radius: 15px;
                     padding: 5px;
                     width: fit-content;
@@ -256,11 +258,11 @@
                 align-items: center;
                 display: flex;
                 flex-direction: column;
-                height: fit-content;
+                height: calc(fit-content + 50px);
+                padding-bottom: 60px;
                 width: 100%;
                 background-color: white;
                 color: black;
-                margin-bottom: 60px;
 
                 & > .team-container {
                     flex-direction: row;
@@ -345,7 +347,7 @@
             <a class="nav-link" href="#" rel="noopener noreferrer">Our Team</a>
             <a class="nav-link" href="subteams.html" rel="noopener noreferrer">Subteams</a>
         </nav>
-        <button class="nav-button" type="button" onclick="memberLogin()">Member Login</button>
+        <button class="nav-button" type="button" onclick="">Member Login</button>
     </header>
     <main>
         <div class="hero">
@@ -383,9 +385,13 @@
                 <div class="team-wrapper">
                     <img src="https://floridarocketlab.org/static/media/IMG_0304.4df1ab688bf476e130da.jpg" alt="" class="team-photo">
                     <p class="team-name">Ben Jones</p>
-                    <p class="team-pos"></p>
+                    <p class="team-pos">Propellant Delivery Director</p>
                 </div>
-                <div class="team-wrapper"></div>
+                <div class="team-wrapper">
+                    <img src="https://floridarocketlab.org/static/media/IMG_0383.546afa7b5fe8b5042233.jpg" alt="" class="team-photo">
+                    <p class="team-name">Lucca Fogaca</p>
+                    <p class="team-pos">Safety Director</p>
+                </div>
             </div>
         </section>
 
