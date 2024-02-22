@@ -298,6 +298,26 @@
                     position: relative;
                 }
             }
+            & > #resources {
+                position: fixed;
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                height: 100vh;
+                align-items: center;
+                justify-content: space-evenly;
+                & a {
+                    text-decoration: none;
+                    color: black;
+                    gap: 8px;
+                    align-items: center;
+                    display: flex;
+                    & > img {
+                        height: 2rem;
+                        width: auto;
+                    }
+                }
+            }
         }
     </style>
     <style name="preloader">
@@ -379,6 +399,13 @@
             <a href="team.html" rel="noopener noreferrer" class="nav-link" id="team">Our Team</a>
             <a href="subteams.html" rel="noopener noreferrer" class="nav-link" id="subs">Subteams</a>
         </nav>
+        <div id="resources">
+            <a href="https://floridarocketlab.atlassian.net/jira/core/projects/AH/board" target="_blank" rel="noopener noreferrer" class="resource"><img src="https://store-images.s-microsoft.com/image/apps.60333.972ef998-9cea-47ce-b06b-160ef818806e.9fd711c5-d061-4a7d-bfaa-456676dfba0c.8a3db838-2bc4-47a6-bfdb-316a3aea1bf7.png" alt=""><h1>Jira</h1></a>
+            <a href="https://confluence.com/" target="_blank" rel="noopener noreferrer" class="resource"><img src="https://pbs.twimg.com/profile_images/1022908662392619008/5_z16TbH_400x400.jpg" alt=""><h1>Confluence</h1></a>
+            <a href="https://mattermost.com/" target="_blank" rel="noopener noreferrer" class="resource"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--JA_mwHAe--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/dgjcqjupo8urlwli58l0.jpg" alt=""><h1>Mattermost</h1></a>
+            <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" class="resource"><img src="https://banner2.cleanpng.com/20180427/wvq/kisspng-discord-logo-computer-icons-reddit-zongzi-14-0-1-5ae3de249d00b2.2332496115248829806431.jpg" alt=""><h1>Discord</h1></a>
+            <a href="" target="_blank" rel="noopener noreferrer" class="resource"><img src="https://cdn.jim-nielsen.com/ios/512/microsoft-teams-2019-03-21.png" alt=""><h1>Teams</h1></a>
+        </div>
     </div>
     <script name="preloader">
         window.addEventListener("load", function(){
