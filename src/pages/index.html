@@ -96,6 +96,7 @@
                 flex-direction: row;
                 flex-wrap: nowrap;
                 width: 100%;
+                font-weight: 700;
                 justify-content: space-evenly;
                 height: 80px;
                 transition: all 250ms ease-in-out;
@@ -158,7 +159,7 @@
                     background: transparent;
                     color: #f2f2f2;
                     justify-content: center;
-                    opacity: 0;
+                    opacity: 1;
                     height: 50px;
                     border-radius: 15px;
                     padding: 5px;
@@ -479,18 +480,18 @@
     <body>
         <div id="preloader"><div class="spinner"></div></div>
         <header id="header">
-            <a id="icon" class="nav-item" href="#" target="_top" rel="noopener noreferrer">
+            <a id="icon" class="nav-item" href="/src/pages/" target="_top" rel="noopener noreferrer">
                 <img src="https://floridarocketlab.org/static/media/LPLogo_Black.42724165117941c7c3630aa62ef1607a.svg" alt="Florida Rocket Lab">
             </a>
             <nav>
-                <a class="nav-link" href="#" target="_top" rel="noopener noreferrer">Home</a>
+                <a class="nav-link" href="/src/pages/" target="_top" rel="noopener noreferrer">Home</a>
                 <a class="nav-link" href="about.html" rel="noopener noreferrer">About</a>
                 <a class="nav-link" href="projects.html" rel="noopener noreferrer">Projects</a>
                 <a class="nav-link" href="sponsors.html" rel="noopener noreferrer">Sponsors</a>
                 <a class="nav-link" href="team.html" rel="noopener noreferrer">Our Team</a>
                 <a class="nav-link" href="subteams.html" rel="noopener noreferrer">Subteams</a>
             </nav>
-            <button class="nav-button" type="button" onclick="">Member Login</button>
+            <button class="nav-button" type="button" onclick="window.location.href='resources.html';">Resources</button>
         </header>
         <main>
             <div class="hero">

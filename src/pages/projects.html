@@ -421,8 +421,46 @@
                 }
             }
         </style>
+        <style name="spinner">
+            #preloader {
+                background: black;
+                height: 100vh;
+                width: 100vw;
+                position: fixed;
+                z-index: 999999;
+                margin: 0;
+                display: grid;
+                place-items: center;
+                & > .spinner {
+                    display: grid;
+                    place-items: center;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    background: conic-gradient(
+                        from 180deg at 50% 50%,
+                        rgba(82, 0, 255, 0) 0deg,
+                        #5200ff 360deg
+                    );
+                    animation: spin 2s linear infinite;
+                    &::before {
+                        content: "";
+                        border-radius: 50%;
+                        width: 80%;
+                        height: 80%;
+                        background-color: black;
+                    }
+                }
+            }
+            @keyframes spin {
+                to {
+                    transform: rotate(1turn);
+                }
+            }
+        </style>
     </head>
     <body>
+        <div class="preloader"><div class="spinner"></div></div>
         <header id="header">
             <a id="icon" class="nav-item" href="index.html" target="_top" rel="noopener noreferrer">
                 <img src="https://floridarocketlab.org/static/media/LPLogo_Black.42724165117941c7c3630aa62ef1607a.svg" alt="Florida Rocket Lab">
@@ -494,5 +532,10 @@
                 </nav>
             </div>
         </main>
+        <script name="preloader">
+            window.addEventListener("load", function(){
+                document.getElementById("preloader").style.display="none";
+            })
+        </script>
     </body>
 </html>
