@@ -12,19 +12,18 @@
         - Teams
     - Add Official FRL Logo to center plume
     - Add "Sparrow" to Rocket
-
-- add about subteams
-- add `Sponsor Us!` Page
-- responsive
-- projects
-    - fluid systems
-    - electrical systems
-    - hopper
+- Replace images
+- Add about subteams
+- Add `Sponsor Us!` Page
+- Responsive
+- Projects
+    - Fluid systems
+    - Electrical systems
+    - Hopper
     - CPLC
-    - engines
-- sponsor page update
+    - Engines
+- Sponsor page update
     - Coolest Page
 - Add cool rocket gif preloader
-    - preload images for faster load times
-
+    - Preload images for faster load times
 - Prepare for integration
